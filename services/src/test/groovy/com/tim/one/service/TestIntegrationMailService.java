@@ -20,14 +20,14 @@ public class TestIntegrationMailService {
   private String message = "message";
 
   @Test
-  public void shouldSendAbonoCuentaMessage() throws Exception {
-    MessageBean bean = setAbonoCuentaBeanExpectations();
+  public void shouldSendMessage() throws Exception {
+    MessageBean bean = setBeanExpectations();
     bean.setType(MessageType.MESSAGE);
 
     notificationService.sendNotification(bean);
   }
   
-  private MessageBean setAbonoCuentaBeanExpectations() {
+  private MessageBean setBeanExpectations() {
   	MessageBean bean = new MessageBean();
     bean.setEmail(email);
     bean.setMessage(message);
