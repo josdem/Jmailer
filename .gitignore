@@ -1,0 +1,13 @@
+/build
+.classpath
+.gradle
+.project
+.settings
+services/bin
+services/.settings
+timone-emailer/formatter/bin
+web/bin
+web/.settings
+timone-emailer/formatter/.settings
+timone-emailer/formatter/bin
+timone-emailer/sender/.settings
