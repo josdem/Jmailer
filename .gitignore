@@ -5,9 +5,14 @@
 .settings
 services/bin
 services/.settings
+services/.classpath
+timone-emailer/.classpath
 timone-emailer/formatter/bin
+timone-emailer/formatter/.classpath
 web/bin
 web/.settings
+web/.classpath
 timone-emailer/formatter/.settings
 timone-emailer/formatter/bin
 timone-emailer/sender/.settings
+timone-emailer/sender/.classpath

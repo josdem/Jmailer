@@ -12,7 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.tim.one.bean.MessageType;
-import com.tim.one.bean.mail.ForgotPasswordBean;
+import com.tim.one.bean.mail.MessageBean;
 import com.tim.one.service.NotificationService;
 
 public class TestMessageConsumer {
@@ -23,7 +23,7 @@ public class TestMessageConsumer {
 	@Mock
 	private ObjectMessage message;
 	@Mock
-	private ForgotPasswordBean simpleBean;
+	private MessageBean simpleBean;
 	@Mock
 	private NotificationService notificationService;
 
@@ -34,7 +34,7 @@ public class TestMessageConsumer {
 
 	@Test
 	public void shouldReceiveMessage() throws Exception {
-		when(simpleBean.getType()).thenReturn(MessageType.FORGOT_PASSWORD);
+		when(simpleBean.getType()).thenReturn(MessageType.MESSAGE);
 		when(message.getObject()).thenReturn(simpleBean);
 
 		messageConsumer.onMessage(message);
