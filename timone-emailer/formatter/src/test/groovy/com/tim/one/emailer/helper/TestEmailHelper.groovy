@@ -5,6 +5,8 @@ import static org.mockito.Mockito.when
 
 import org.junit.Test
 
+import com.jos.dem.emailer.helper.EmailHelper;
+
 public class TestEmailHelper {
 
 	private EmailHelper helper = new EmailHelper()

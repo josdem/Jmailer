@@ -1,4 +1,4 @@
-package com.tim.one.emailer.helper
+package com.jos.dem.emailer.helper
 
 import java.io.File
 import java.io.IOException
