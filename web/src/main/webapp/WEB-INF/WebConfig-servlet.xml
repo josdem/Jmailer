@@ -19,13 +19,13 @@
 	<import resource="classpath:/properties-appctx.xml" />
 	<import resource="classpath:/monitor-appctx.xml" />
 
-	<context:component-scan base-package="com.tim.one" />
+	<context:component-scan base-package="com.jos.dem" />
 	<!-- Should be defined last! -->
 	<!-- Used to find Jackson JSON Mapper -->
 	<mvc:annotation-driven />
 
   <mvc:interceptors>
-    <bean class="com.tim.one.interceptor.LoggerInterceptor" />
+    <bean class="com.jos.dem.interceptor.LoggerInterceptor" />
   </mvc:interceptors>
 
 	<task:annotation-driven />
