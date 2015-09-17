@@ -10,7 +10,7 @@ import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
 import com.jos.dem.interceptor.impl.CryptoExceptionInterceptorImpl
-import com.tim.one.service.LoggerService
+import com.jos.dem.service.LoggerService
 
 class TestCryptoExceptionInterceptor {
 	

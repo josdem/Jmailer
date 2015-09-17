@@ -9,5 +9,5 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 	<util:properties id="emailProperties" location="classpath:config/email.properties" />
-	<bean id="notificationService" class="com.tim.one.service.impl.NotificationServiceImpl"></bean>
+	<bean id="notificationService" class="com.jos.dem.service.impl.NotificationServiceImpl"></bean>
 </beans>

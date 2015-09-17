@@ -1,6 +1,6 @@
 package com.jos.dem.service.impl
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder
 import org.apache.commons.logging.Log
 import org.apache.commons.logging.LogFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -46,6 +46,6 @@ class NotificationServiceImpl implements NotificationService {
     String templateName = emailData.templateName
     def bean = emailData.bean
     String subject = emailData.subject
-    mailService.sendMailWithEngine(bean.email, bean.properties, subject, templateName);
+    mailService.sendMailWithEngine(bean.email, bean.properties, subject, templateName)
   }
 }
