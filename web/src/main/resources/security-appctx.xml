@@ -59,8 +59,8 @@
     </bean>
  
     <bean id="clientDetails" class="com.tim.web.security.oauth2.GuestServiceImpl">
-        <property name="integraKey" value="integra" />
-        <property name="integraSecret" value="e6e68d8a-baf9-4880-aece-7774ffd4fb22" />
+        <property name="key" value="integra" />
+        <property name="secret" value="e6e68d8a-baf9-4880-aece-7774ffd4fb22" />
     </bean>
     
     <bean id="userValidator" class="com.tim.web.security.oauth2.UserValidatorImpl" />

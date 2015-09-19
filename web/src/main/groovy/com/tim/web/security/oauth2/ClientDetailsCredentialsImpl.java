@@ -5,15 +5,15 @@ import java.util.List;
 
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 
-public class KpmgClientDetaulsCredentials implements ClientDetailsCredentials {
+public class ClientDetailsCredentialsImpl implements ClientDetailsCredentials {
 	
-	private String kpmgKey;
-  private String kpmgSecret;
+	private String key;
+  private String secret;
   
   List<String> authorizedGrantTypes = new ArrayList<String>();
   List<String> scopes = new ArrayList<String>();
 
-  public KpmgClientDetaulsCredentials() {
+  public ClientDetailsCredentialsImpl() {
   	authorizedGrantTypes.add("password");
   	authorizedGrantTypes.add("refresh_token");
   	authorizedGrantTypes.add("client_credentials");
@@ -24,27 +24,27 @@ public class KpmgClientDetaulsCredentials implements ClientDetailsCredentials {
 	@Override
 	public BaseClientDetails getBaseClientDetails() {
 		BaseClientDetails clientDetails = new BaseClientDetails();
-		clientDetails.setClientId(kpmgKey);
-		clientDetails.setClientSecret(kpmgSecret);
+		clientDetails.setClientId(key);
+		clientDetails.setClientSecret(secret);
 		clientDetails.setAuthorizedGrantTypes(authorizedGrantTypes);
 		clientDetails.setScope(scopes);
 		return clientDetails;
 	}
 
-	public String getKpmgKey() {
-		return kpmgKey;
+	public String getKey() {
+		return key;
 	}
 	
-	public void setKpmgKey(String kpmgKey) {
-		this.kpmgKey = kpmgKey;
+	public void setKey(String key) {
+		this.key = key;
 	}
 	
-	public String getKpmgSecret() {
-		return kpmgSecret;
+	public String getSecret() {
+		return secret;
 	}
 	
-	public void setKpmgSecret(String kpmgSecret) {
-		this.kpmgSecret = kpmgSecret;
+	public void setSecret(String secret) {
+		this.secret = secret;
 	}
 	
 }
