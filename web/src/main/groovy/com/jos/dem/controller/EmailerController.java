@@ -42,7 +42,7 @@ public class EmailerController {
 
 	private Log log = LogFactory.getLog(getClass());
 
-	@RequestMapping(method = POST, value = "emailer/message")
+	@RequestMapping(method = POST, value = "/emailer/message")
 	@ResponseBody
 	public ResponseEntity<String> message(@RequestBody String json){
 		MessageCommand command = new Gson().fromJson(json, MessageCommand.class);

@@ -6,6 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
+import org.apache.commons.logging.Log
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.servlet.HandlerInterceptor
 import org.springframework.web.servlet.ModelAndView
@@ -25,6 +27,8 @@ class LoggerInterceptor implements HandlerInterceptor {
 	@Autowired
 	StringSplitter splitter
 	
+	Log log = LogFactory.getLog(LoggerInterceptor.class)
+	
 	def whiteList = []
 	
 	@PostConstruct
@@ -39,6 +43,8 @@ class LoggerInterceptor implements HandlerInterceptor {
   	data.method = request.method
   	data.requestURL = request.requestURL
   	data.parameters = request.parameterMap
+		
+		log.info "data: ${data}"
 
 		if(!whiteList.contains(request.remoteHost)){
 			data.warn = "UNAUTORIZED IP was detected in attempt to access to resource"

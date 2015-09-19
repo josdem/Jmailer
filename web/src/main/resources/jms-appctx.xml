@@ -20,7 +20,8 @@
   </amq:broker>
 
   <!--  ActiveMQ Destination  -->
-  <amq:queue id="logger" physicalName="com.tim.one.loggerMessageListener" />
+  <amq:queue id="destination" physicalName="com.jos.dem.messengine.jmsMessageListener" />
+  <amq:queue id="logger" physicalName="com.jos.dem.messengine.loggerMessageListener" />
 
   <!-- JMS ConnectionFactory to use, configuring the embedded broker using XML -->
   <amq:connectionFactory id="jmsFactory" brokerURL="vm://localhost" />
@@ -43,7 +44,8 @@
   <jms:listener-container container-type="default"
     connection-factory="jmsConsumerConnectionFactory"
     acknowledge="auto">
-    <jms:listener destination="com.tim.one.loggerMessageListener" ref="loggerMessageListener" />
+    <jms:listener destination="com.jos.dem.messengine.jmsMessageListener" ref="jmsMessageListener" />
+    <jms:listener destination="com.jos.dem.messengine.loggerMessageListener" ref="loggerMessageListener" />
   </jms:listener-container>
 
 </beans>
