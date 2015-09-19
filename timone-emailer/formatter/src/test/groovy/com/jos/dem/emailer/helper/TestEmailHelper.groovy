@@ -1,4 +1,4 @@
-package com.tim.one.emailer.helper
+package com.jos.dem.emailer.helper
 
 import static org.junit.Assert.assertNotNull
 import static org.mockito.Mockito.when

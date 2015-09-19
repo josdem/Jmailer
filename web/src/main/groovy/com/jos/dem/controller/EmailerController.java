@@ -30,7 +30,7 @@ import com.jos.dem.bean.mail.MessageBean;
  */
 
 @Controller
-@RequestMapping("/emailer/*")
+@RequestMapping("/services/*")
 public class EmailerController {
 
 	@Autowired
@@ -42,7 +42,7 @@ public class EmailerController {
 
 	private Log log = LogFactory.getLog(getClass());
 
-	@RequestMapping(method = POST, value = "/message")
+	@RequestMapping(method = POST, value = "emailer/message")
 	@ResponseBody
 	public ResponseEntity<String> message(@RequestBody String json){
 		MessageCommand command = new Gson().fromJson(json, MessageCommand.class);
