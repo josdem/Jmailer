@@ -1,4 +1,4 @@
-package com.jos.dem.security.oauth2;
+package com.security.oauth2;
 
 import java.util.Collection;
 

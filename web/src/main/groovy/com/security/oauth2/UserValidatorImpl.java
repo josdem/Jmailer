@@ -1,4 +1,4 @@
-package com.jos.dem.security.oauth2;
+package com.security.oauth2;
 
 import java.util.Properties;
 
@@ -19,8 +19,8 @@ public class UserValidatorImpl implements UserValidator {
 	public boolean isValidUser(String user, String password) {
 		log.info("LOGIN WITH CREDENTIALS: " + user + " password: " + password);
 		
-		String integraUsername = oauth2.getProperty(ApplicationState.INTEGRA_USERNAME);
-		String integraPassword = oauth2.getProperty(ApplicationState.INTEGRA_PASSWORD);
+		String integraUsername = oauth2.getProperty(ApplicationState.USERNAME);
+		String integraPassword = oauth2.getProperty(ApplicationState.PASSWORD);
 		
 		return (user.equals(integraUsername) && password.equals(integraPassword));
 	}

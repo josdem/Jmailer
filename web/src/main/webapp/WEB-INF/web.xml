@@ -55,5 +55,32 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>WebConfig</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  	</listener>
+  	
+	<context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+        classpath:/services-appctx.xml,
+  		classpath:/mail-context.xml,
+  		classpath:/formatter-appctx.xml,
+  		classpath:/jms-appctx.xml,
+  		classpath:/properties-appctx.xml,
+  		classpath:/monitor-appctx.xml,
+        classpath:/security-appctx.xml
+        </param-value>
+    </context-param>
+	
+	<filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>

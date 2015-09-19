@@ -1,19 +1,19 @@
-package com.jos.dem.security.oauth2;
+package com.security.oauth2;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 
-public class IntegraClientDetaulsCredentials implements ClientDetailsCredentials {
+public class ClientDetailsCredentialsImpl implements ClientDetailsCredentials {
 	
-	private String integraKey;
-  private String integraSecret;
+  private String clientKey;
+  private String clientSecret;
   
   List<String> authorizedGrantTypes = new ArrayList<String>();
   List<String> scopes = new ArrayList<String>();
 
-  public IntegraClientDetaulsCredentials() {
+  public ClientDetailsCredentialsImpl() {
   	authorizedGrantTypes.add("password");
   	authorizedGrantTypes.add("refresh_token");
   	authorizedGrantTypes.add("client_credentials");
@@ -24,27 +24,27 @@ public class IntegraClientDetaulsCredentials implements ClientDetailsCredentials
 	@Override
 	public BaseClientDetails getBaseClientDetails() {
 		BaseClientDetails clientDetails = new BaseClientDetails();
-		clientDetails.setClientId(integraKey);
-		clientDetails.setClientSecret(integraSecret);
+		clientDetails.setClientId(clientKey);
+		clientDetails.setClientSecret(clientSecret);
 		clientDetails.setAuthorizedGrantTypes(authorizedGrantTypes);
 		clientDetails.setScope(scopes);
 		return clientDetails;
 	}
 	
-	public String getIntegraKey() {
-		return integraKey;
+	public String getClientKey() {
+		return clientKey;
 	}
 	
-	public void setIntegraKey(String integraKey) {
-		this.integraKey = integraKey;
+	public void setClientKey(String clientKey) {
+		this.clientKey = clientKey;
 	}
 	
-	public String getIntegraSecret() {
-		return integraSecret;
+	public String getClientSecret() {
+		return clientSecret;
 	}
 	
-	public void setIntegraSecret(String integraSecret) {
-		this.integraSecret = integraSecret;
+	public void setClientSecret(String clientSecret) {
+		this.clientSecret = clientSecret;
 	}
 	
 }
