@@ -1,4 +1,4 @@
-package com.makingdevs.vo;
+package com.jos.dem.vo;
 
 public class User {
 	private String userName;

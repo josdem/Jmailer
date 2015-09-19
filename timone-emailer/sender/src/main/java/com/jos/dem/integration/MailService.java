@@ -1,4 +1,4 @@
-package com.makingdevs.integration;
+package com.jos.dem.integration;
 
 import java.util.Map;
 

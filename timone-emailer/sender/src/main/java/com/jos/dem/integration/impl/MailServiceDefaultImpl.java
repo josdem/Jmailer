@@ -1,4 +1,4 @@
-package com.makingdevs.integration.impl;
+package com.jos.dem.integration.impl;
 
 import java.util.Map;
 
@@ -13,7 +13,7 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
-import com.makingdevs.integration.MailService;
+import com.jos.dem.integration.MailService;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

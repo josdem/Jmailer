@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.makingdevs.integration.MailService;
-import com.makingdevs.vo.User;
+import com.jos.dem.integration.MailService;
+import com.jos.dem.vo.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "classpath:/mail-context.xml" })
