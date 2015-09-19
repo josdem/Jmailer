@@ -1,4 +1,4 @@
-package com.tim.web.security.oauth2;
+package com.security.oauth2;
 
 import java.util.Properties;
 
