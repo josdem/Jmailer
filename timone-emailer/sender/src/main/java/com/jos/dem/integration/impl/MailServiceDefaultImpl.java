@@ -29,7 +29,7 @@ public class MailServiceDefaultImpl implements MailService {
   @Autowired
   private JavaMailSender javaMailSender;
   
-  private String sender = "noreply@trama.mx";
+  private String sender = "contact@josdem.io";
   
   public void sendMailWithEngine(final String email, final Map model, final String subject, final String template) {
     MimeMessagePreparator preparator = new MimeMessagePreparator() {
