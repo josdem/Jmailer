@@ -59,8 +59,8 @@
     </bean>
  
     <bean id="clientDetails" class="com.security.oauth2.GuestServiceImpl">
-        <property name="key" value="integra" />
-        <property name="secret" value="e6e68d8a-baf9-4880-aece-7774ffd4fb22" />
+        <property name="key" value="Jmailer" />
+        <property name="secret" value="3b6efab8-3fd9-42cd-a396-23f549b06f07" />
     </bean>
     
     <bean id="userValidator" class="com.security.oauth2.UserValidatorImpl" />
