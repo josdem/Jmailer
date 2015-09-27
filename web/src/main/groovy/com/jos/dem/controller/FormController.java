@@ -54,7 +54,7 @@ public class FormController {
 		bean.setMessage(command.getMessage());
 		bean.setType(MessageType.FORM);
 		messageDispatcher.message(bean);
-    return "redirect:http://josdem.io";
+    return "redirect:http://josdem.io/flyer/jmailer";
 	}
 
 }
