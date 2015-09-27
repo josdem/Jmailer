@@ -53,7 +53,7 @@ public class FormController {
 		bean.setEmailContact(command.getEmailContact());
 		bean.setName(command.getName());
 		bean.setMessage(command.getMessage());
-		bean.setType(MessageType.MESSAGE);
+		bean.setType(MessageType.FORM);
 		messageDispatcher.message(bean);
 		return new ResponseEntity<String>("OK", HttpStatus.OK);
 	}
