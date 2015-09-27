@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.jos.dem.bean.ErrorCode;
-import com.jos.dem.command.MessageCommand;
+import com.jos.dem.command.FormCommand;
 import com.jos.dem.integration.MessageService;
 import com.jos.dem.validator.CommandValidator;
 import com.jos.dem.bean.MessageType;
-import com.jos.dem.bean.mail.MessageBean;
+import com.jos.dem.bean.mail.FormBean;
 
 /**
  * @author josdem
@@ -30,30 +30,30 @@ import com.jos.dem.bean.mail.MessageBean;
  */
 
 @Controller
-@RequestMapping("/services/*")
-public class EmailerController {
+@RequestMapping("/form/*")
+public class FormController {
 
 	@Autowired
 	private MessageService messageDispatcher;
 	@Autowired
 	private CommandValidator validator;
-	@Autowired
-	private Properties dynamic;
 
 	private Log log = LogFactory.getLog(getClass());
 
-	@RequestMapping(method = POST, value = "/emailer/message")
+	@RequestMapping(method = POST, value = "/contact")
 	@ResponseBody
 	public ResponseEntity<String> message(@RequestBody String json) {
-		MessageCommand command = new Gson().fromJson(json, MessageCommand.class);
+		FormCommand command = new Gson().fromJson(json, FormCommand.class);
 		log.info("Sending contact email: " + ToStringBuilder.reflectionToString(command));
 
 		if (!validator.isValid(command)) {
 			return new ResponseEntity<String>("Error: " + ErrorCode.VALIDATOR_ERROR.ordinal(), HttpStatus.BAD_REQUEST);
 		}
 
-		MessageBean bean = new MessageBean();
-		bean.setEmail(command.getEmail());
+		FormBean bean = new FormBean();
+		bean.setEmailSender(command.getEmailSender());
+		bean.setEmailReceiver(command.getEmailReceiver());
+		bean.setName(command.getName());
 		bean.setMessage(command.getMessage());
 		bean.setType(MessageType.MESSAGE);
 		messageDispatcher.message(bean);
