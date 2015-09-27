@@ -44,10 +44,9 @@ public class FormController {
 	private Log log = LogFactory.getLog(getClass());
 
 	@RequestMapping(method = POST,  value = "/contact")
-	ModelAndView message(@Valid FormCommand command) {
+	String message(@Valid FormCommand command) {
 		log.info("Sending contact email: " + ToStringBuilder.reflectionToString(command));
 
-    ModelAndView modelAndView = new ModelAndView();
 		FormBean bean = new FormBean();
 		bean.setEmail(dynamic.getProperty(ApplicationState.EMAIL_DESTINATION));
 		bean.setEmailContact(command.getEmailContact());
@@ -55,7 +54,7 @@ public class FormController {
 		bean.setMessage(command.getMessage());
 		bean.setType(MessageType.FORM);
 		messageDispatcher.message(bean);
-		return modelAndView;
+    return "redirect:http://josdem.io";
 	}
 
 }
