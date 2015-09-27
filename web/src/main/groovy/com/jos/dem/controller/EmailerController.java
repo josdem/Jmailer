@@ -2,8 +2,6 @@ package com.jos.dem.controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-import java.util.Properties;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,11 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.jos.dem.bean.ErrorCode;
+import com.jos.dem.bean.MessageType;
+import com.jos.dem.bean.mail.MessageBean;
 import com.jos.dem.command.MessageCommand;
 import com.jos.dem.integration.MessageService;
 import com.jos.dem.validator.CommandValidator;
-import com.jos.dem.bean.MessageType;
-import com.jos.dem.bean.mail.MessageBean;
 
 /**
  * @author josdem
@@ -37,8 +35,6 @@ public class EmailerController {
 	private MessageService messageDispatcher;
 	@Autowired
 	private CommandValidator validator;
-	@Autowired
-	private Properties dynamic;
 
 	private Log log = LogFactory.getLog(getClass());
 

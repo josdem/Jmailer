@@ -7,18 +7,16 @@ import org.hibernate.validator.constraints.SafeHtml
 
 class FormCommand implements Command {
 
-	@@Email
+	@Email
 	@NotNull
-	String emailReceiver
+	String email
 
-  Email
 	@NotNull
-	String emailSender
+	String emailContact
 
-  @SafeHtml
-  String name
+	@SafeHtml
+	String name
 
 	@SafeHtml
 	String message
-
 }
