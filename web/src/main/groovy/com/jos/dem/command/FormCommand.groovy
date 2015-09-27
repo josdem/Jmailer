@@ -9,10 +9,6 @@ class FormCommand implements Command {
 
 	@Email
 	@NotNull
-	String email
-
-  @Email
-	@NotNull
 	String emailContact
 
 	@SafeHtml

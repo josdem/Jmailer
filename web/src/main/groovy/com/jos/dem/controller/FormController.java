@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import java.util.Properties;
 
 import com.google.gson.Gson;
 import com.jos.dem.bean.ErrorCode;
@@ -20,6 +21,7 @@ import com.jos.dem.bean.mail.FormBean;
 import com.jos.dem.command.FormCommand;
 import com.jos.dem.integration.MessageService;
 import com.jos.dem.validator.CommandValidator;
+import com.jos.dem.state.ApplicationState;
 import javax.validation.Valid;
 
 /**
@@ -36,6 +38,8 @@ public class FormController {
 	private MessageService messageDispatcher;
 	@Autowired
 	private CommandValidator validator;
+  @Autowired
+  private Properties dynamic;
 
 	private Log log = LogFactory.getLog(getClass());
 
@@ -45,7 +49,7 @@ public class FormController {
 
     ModelAndView modelAndView = new ModelAndView();
 		FormBean bean = new FormBean();
-		bean.setEmail(command.getEmail());
+		bean.setEmail(dynamic.getProperty(ApplicationState.EMAIL_DESTINATION));
 		bean.setEmailContact(command.getEmailContact());
 		bean.setName(command.getName());
 		bean.setMessage(command.getMessage());
