@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.google.gson.Gson;
 import com.jos.dem.bean.ErrorCode;
@@ -20,10 +20,11 @@ import com.jos.dem.bean.mail.FormBean;
 import com.jos.dem.command.FormCommand;
 import com.jos.dem.integration.MessageService;
 import com.jos.dem.validator.CommandValidator;
+import javax.validation.Valid;
 
 /**
  * @author josdem
- * @understands A class who knows how to send emails using Json
+ * @understands A class who knows how to send emails using http post
  *
  */
 
@@ -38,16 +39,11 @@ public class FormController {
 
 	private Log log = LogFactory.getLog(getClass());
 
-	@RequestMapping(method = POST, value = "/contact")
-	@ResponseBody
-	public ResponseEntity<String> message(@RequestBody String json) {
-		FormCommand command = new Gson().fromJson(json, FormCommand.class);
+	@RequestMapping(method = POST,  value = "/contact")
+	ModelAndView message(@Valid FormCommand command) {
 		log.info("Sending contact email: " + ToStringBuilder.reflectionToString(command));
 
-		if (!validator.isValid(command)) {
-			return new ResponseEntity<String>("Error: " + ErrorCode.VALIDATOR_ERROR.ordinal(), HttpStatus.BAD_REQUEST);
-		}
-
+    ModelAndView modelAndView = new ModelAndView();
 		FormBean bean = new FormBean();
 		bean.setEmail(command.getEmail());
 		bean.setEmailContact(command.getEmailContact());
@@ -55,7 +51,7 @@ public class FormController {
 		bean.setMessage(command.getMessage());
 		bean.setType(MessageType.FORM);
 		messageDispatcher.message(bean);
-		return new ResponseEntity<String>("OK", HttpStatus.OK);
+		return modelAndView;
 	}
 
 }

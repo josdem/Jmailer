@@ -11,6 +11,7 @@ class FormCommand implements Command {
 	@NotNull
 	String email
 
+  @Email
 	@NotNull
 	String emailContact
 
