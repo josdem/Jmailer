@@ -44,11 +44,26 @@ public class FormController {
 	private Log log = LogFactory.getLog(getClass());
 
 	@RequestMapping(method = POST,  value = "/contact")
-	String message(@Valid FormCommand command) {
-		log.info("Sending contact email: " + ToStringBuilder.reflectionToString(command));
+	String contact(@Valid FormCommand command) {
+		log.info("Sending josdem contact email: " + ToStringBuilder.reflectionToString(command));
 
 		FormBean bean = new FormBean();
-		bean.setEmail(dynamic.getProperty(ApplicationState.EMAIL_DESTINATION));
+		bean.setEmail(dynamic.getProperty(ApplicationState.EMAIL_JOSDEM));
+		bean.setEmailContact(command.getEmailContact());
+		bean.setName(command.getName());
+		bean.setMessage(command.getMessage());
+		bean.setType(MessageType.FORM);
+		messageDispatcher.message(bean);
+    return "redirect:http://josdem.io/flyer/jmailer";
+	}
+
+  @RequestMapping(method = POST,  value = "/bike")
+	String bike(@Valid FormCommand command) {
+		log.info("Sending byke contact email: " + dynamic.getProperty(ApplicationState.EMAIL_BIKE));
+		log.info("email: " + ToStringBuilder.reflectionToString(command));
+
+		FormBean bean = new FormBean();
+		bean.setEmail(dynamic.getProperty(ApplicationState.EMAIL_BIKE));
 		bean.setEmailContact(command.getEmailContact());
 		bean.setName(command.getName());
 		bean.setMessage(command.getMessage());
