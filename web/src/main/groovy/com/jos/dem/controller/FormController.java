@@ -59,8 +59,7 @@ public class FormController {
 
   @RequestMapping(method = POST,  value = "/bike")
 	String bike(@Valid FormCommand command) {
-		log.info("Sending byke contact email: " + dynamic.getProperty(ApplicationState.EMAIL_BIKE));
-		log.info("email: " + ToStringBuilder.reflectionToString(command));
+		log.info("Sending byke contact email: " + ToStringBuilder.reflectionToString(command));
 
 		FormBean bean = new FormBean();
 		bean.setEmail(dynamic.getProperty(ApplicationState.EMAIL_BIKE));
