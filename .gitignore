@@ -16,3 +16,5 @@ timone-emailer/formatter/.settings
 timone-emailer/formatter/bin
 timone-emailer/sender/.settings
 timone-emailer/sender/.classpath
+services/src/test/resources/config
+web/src/main/resources/config
