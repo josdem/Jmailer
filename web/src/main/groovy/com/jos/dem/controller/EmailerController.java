@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import java.lang.RuntimeException;
 
 import com.google.gson.Gson;
 import com.jos.dem.bean.ErrorCode;
@@ -45,7 +46,7 @@ public class EmailerController {
 		log.info("Sending contact email: " + ToStringBuilder.reflectionToString(command));
 
 		if (!validator.isValid(command)) {
-			return new ResponseEntity<String>("Error: " + ErrorCode.VALIDATOR_ERROR.ordinal(), HttpStatus.BAD_REQUEST);
+			throw new RuntimeException();
 		}
 
 		MessageBean bean = new MessageBean();
